@@ -1,0 +1,115 @@
+.testimonial-section {
+    padding: 4rem 1.5rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.testimonial-title {
+    font-size: 2.5rem;
+    font-weight: 800;
+    margin-bottom: 3rem;
+    background: linear-gradient(90deg, #0A5C36, #0F5132);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: fadeInTitle 1s ease-out;
+}
+
+[data-theme='dark'] .testimonial-title {
+    background: linear-gradient(90deg, #4cc9f0, #3a86ff, #8338ec);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.testimonial-cards {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    justify-content: center;
+    animation: scaleUp 1s ease-in-out;
+}
+
+.testimonial-card {
+    background: #0A5C36;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 2rem;
+    border-radius: 1.5rem;
+    max-width: 400px;
+    min-height: 250px;
+    text-align: left;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+[data-theme='dark'] .testimonial-card {
+    background-color: #003366;
+}
+
+.testimonial-card:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.15);
+}
+
+.quote-icon {
+    font-size: 2.5rem;
+    color: var(--color-button-text);
+    animation: floatQuote 2s ease-in-out infinite;
+}
+
+.testimonial-message {
+    font-size: 1.05rem;
+    margin: 1rem 0;
+    font-style: italic;
+    line-height: 1.6;
+    color: var(--color-button-text);
+    position: relative;
+    z-index: 1;
+}
+
+.testimonial-author {
+    font-size: 0.95rem;
+    font-weight: bold;
+    color: var(--color-button-text);
+    margin-top: 1rem;
+    position: relative;
+    z-index: 1;
+}
+
+/* Animations */
+@keyframes floatQuote {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-6px);
+    }
+}
+
+@keyframes fadeInTitle {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes scaleUp {
+    from {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}

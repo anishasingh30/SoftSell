@@ -1,0 +1,127 @@
+.why-section {
+    padding: 4rem 1.5rem;
+    background: var(--hero-bg);
+    color: var(--hero-text);
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.why-title {
+    font-size: 2.5rem;
+    font-weight: 800;
+    margin-bottom: 3rem;
+    background: #ffffff;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: fadeInTitle 1s ease-out;
+}
+
+/* [data-theme='dark'] .why-title {
+    background: linear-gradient(90deg, #4cc9f0, #3a86ff, #8338ec);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+} */
+
+.why-cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2rem;
+    animation: scaleUp 1s ease-in-out;
+}
+
+.why-card {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 2rem;
+    border-radius: 1.5rem;
+    max-width: 280px;
+    flex: 1 1 260px;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+}
+
+.why-card::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle at center, rgba(255, 255, 255, 0.03), transparent 70%);
+    transform: rotate(30deg);
+    z-index: 0;
+}
+
+.why-card:hover {
+    transform: translateY(-10px) scale(1.03);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+}
+
+.why-card h3 {
+    margin-top: 1rem;
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: var(--color-button-text);
+    z-index: 1;
+    position: relative;
+}
+
+.why-card p {
+    margin-top: 0.75rem;
+    font-size: 0.95rem;
+    color: var(--color-button-text);
+    line-height: 1.5;
+    z-index: 1;
+    position: relative;
+}
+
+.feature-icon {
+    font-size: 2.5rem;
+    color: var(--color-button-text);
+    margin-bottom: 1rem;
+    z-index: 1;
+    position: relative;
+    animation: floatIcon 2.5s ease-in-out infinite;
+}
+
+/* Animations */
+@keyframes floatIcon {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-8px);
+    }
+}
+
+@keyframes fadeInTitle {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes scaleUp {
+    from {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}

@@ -1,0 +1,116 @@
+.contact-section {
+    padding: 4rem 1.5rem;
+    background: var(--hero-bg);
+    color: var(--hero-text);
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.contact-title {
+    font-size: 2.5rem;
+    font-weight: 800;
+    margin-bottom: 2.5rem;
+    background: #ffffff;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: fadeInTitle 1s ease;
+}
+
+/* [data-theme='dark'] .contact-title {
+    background: linear-gradient(90deg, #4cc9f0, #3a86ff, #8338ec);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+} */
+
+.contact-form {
+    max-width: 520px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(12px);
+    border-radius: 1rem;
+    padding: 2rem;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+    animation: fadeInForm 1.2s ease;
+}
+
+.contact-form input,
+.contact-form select,
+.contact-form textarea {
+    padding: 0.8rem 1.2rem;
+    border: 1px solid #ccc;
+    border-radius: 0.6rem;
+    font-size: 1rem;
+    background-color: rgba(255, 255, 255, 0.9);
+    color: #222;
+    transition: border 0.3s, transform 0.2s;
+}
+
+[data-theme='dark'] .contact-form input,
+[data-theme='dark'] .contact-form select,
+[data-theme='dark'] .contact-form textarea {
+    background-color: rgba(15, 23, 42, 0.8);
+    color: #eee;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.contact-form input:focus,
+.contact-form select:focus,
+.contact-form textarea:focus {
+    border-color: var(--color-button-text);
+    outline: none;
+    transform: scale(1.02);
+    box-shadow: 0 0 6px rgba(10, 92, 54, 0.4);
+}
+
+.contact-submit {
+    background: linear-gradient(135deg, #0A5C36, #0F5132);
+    color: var(--color-button-text);
+    padding: 0.8rem 2rem;
+    border: none;
+    border-radius: 50px;
+    font-weight: 700;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+[data-theme='dark'] .contact-submit {
+    background: #003366;
+}
+
+.contact-submit:hover {
+    background: linear-gradient(135deg, #0F5132, #0A5C36);
+    box-shadow: 0 8px 25px rgba(10, 92, 54, 0.3);
+    transform: scale(1.05);
+}
+
+/* Animations */
+@keyframes fadeInTitle {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInForm {
+    from {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}

@@ -1,0 +1,185 @@
+:root {
+    --chat-bg: rgba(255, 255, 255, 0.1);
+    --chat-border: rgba(255, 255, 255, 0.15);
+    --chat-text: #111;
+    --chat-user-bg: linear-gradient(135deg, #0F5132, #0A5C36);
+    --chat-assistant-bg: rgba(255, 255, 255, 0.2);
+    --chat-header-bg: linear-gradient(135deg, #0A5C36, #0F5132);
+    --chat-input-bg: rgba(255, 255, 255, 0.9);
+    --chat-input-color: #222;
+    --chat-btn-text: #ffffff;
+    --chat-btn-bg: linear-gradient(135deg, #0A5C36, #0F5132);
+    --chat-btn-hover-bg: linear-gradient(135deg, #0F5132, #0A5C36);
+    --chat-border-top: rgba(255, 255, 255, 0.1);
+    --chat-suggestion-color: #999;
+}
+
+[data-theme='dark'] {
+    --chat-bg: rgba(20, 30, 40, 0.5);
+    --chat-border: rgba(255, 255, 255, 0.15);
+    --chat-text: #ffffff;
+    --chat-user-bg: linear-gradient(135deg, #003153, #00416a);
+    --chat-assistant-bg: rgba(0, 0, 0, 0.3);
+    --chat-header-bg: linear-gradient(135deg, #003153, #00416a);
+    --chat-input-bg: rgba(20, 30, 40, 0.8);
+    --chat-input-color: #ffffff;
+    --chat-btn-text: #ffffff;
+    --chat-btn-bg: linear-gradient(135deg, #003153, #00416a);
+    --chat-btn-hover-bg: linear-gradient(135deg, #003153, #00416a);
+    --chat-border-top: rgba(255, 255, 255, 0.1);
+    --chat-suggestion-color: #ccc;
+}
+
+.chat-container {
+    position: fixed;
+    bottom: 1.5rem;
+    right: 1.5rem;
+    z-index: 1000;
+    animation: floatIn 0.6s ease forwards;
+}
+
+.chat-box {
+    width: 320px;
+    border-radius: 1rem;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
+    background: var(--chat-bg);
+    backdrop-filter: blur(12px);
+    color: var(--chat-text);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: all 0.3s ease;
+    border: 1px solid var(--chat-border);
+}
+
+.chat-header {
+    background: var(--chat-header-bg);
+    color: var(--chat-btn-text);
+    padding: 1rem;
+    font-weight: 700;
+    font-size: 1.1rem;
+    cursor: pointer;
+    text-align: center;
+    border-bottom: 1px solid var(--chat-border-top);
+}
+
+.chat-body {
+    max-height: 280px;
+    overflow-y: auto;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    scrollbar-width: none;
+}
+
+.chat-body::-webkit-scrollbar {
+    display: none;
+}
+
+.chat-msg {
+    padding: 0.75rem 1rem;
+    border-radius: 0.75rem;
+    max-width: 80%;
+    line-height: 1.5;
+    word-break: break-word;
+    animation: popIn 0.3s ease;
+}
+
+.chat-msg.user {
+    background: var(--chat-user-bg);
+    color: #fff;
+    align-self: flex-end;
+}
+
+.chat-msg.assistant {
+    background-color: var(--chat-assistant-bg);
+    color: var(--chat-text);
+    align-self: flex-start;
+}
+
+.chat-input {
+    display: flex;
+    padding: 0.75rem;
+    gap: 0.5rem;
+    background-color: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(6px);
+    border-top: 1px solid var(--chat-border-top);
+}
+
+.chat-input input {
+    flex: 1;
+    padding: 0.6rem 1rem;
+    border: 1px solid #ccc;
+    border-radius: 999px;
+    background-color: var(--chat-input-bg);
+    color: var(--chat-input-color);
+    transition: transform 0.2s;
+}
+
+.chat-input input:focus {
+    outline: none;
+    transform: scale(1.03);
+    border-color: var(--color-button-hover);
+}
+
+.chat-input button {
+    background: var(--chat-btn-bg);
+    color: var(--chat-btn-text);
+    border: none;
+    padding: 0.6rem 1.2rem;
+    border-radius: 50px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.chat-input button:hover {
+    transform: scale(1.05);
+    background: var(--chat-btn-hover-bg);
+    box-shadow: 0 0 10px rgba(10, 92, 54, 0.3);
+}
+
+.chat-suggestion {
+    font-size: 0.85rem;
+    color: var(--chat-suggestion-color);
+    font-style: italic;
+    margin-top: 0.5rem;
+    text-align: center;
+    animation: fadeIn 0.5s ease;
+}
+
+/* Animations */
+@keyframes floatIn {
+    from {
+        transform: translateY(40px);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes popIn {
+    from {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
